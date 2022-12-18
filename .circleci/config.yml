@@ -47,19 +47,10 @@ jobs:
           name: Build, test and push docker image
           command: |
             docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PWD}
-            docker build -t quangit/my-weather:latest .
+            docker build -t quangit/my-weather .
             docker-compose up -d
             sleep 10
-            docker ps
-            export url="http://localhost:8000"
-            export response=$(curl -s $url)
-            echo "This is response $response"
-            if [[ $response == *"Rolling Deployment V2"* ]]; then              
-              docker stop app_web_1
-            else              
-              docker stop app_web_1
-              exit 1
-            fi
+            docker image ls
             docker push quangit/my-weather:latest
             
   test-cluster:
