@@ -145,7 +145,6 @@ workflows:
            cluster-name: mycapstone-myweather123456723
            container-image-updates: 'udacity-capstone=quangit/my-weather:latest'
            get-rollout-status: true
-           record: true
            requires:
             - test-deployment
            resource-name:  deployment/udacity-capstone           
