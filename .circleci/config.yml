@@ -63,7 +63,8 @@ jobs:
             docker push quangit/my-weather:latest
             
   test-cluster:
-    executor: aws-eks/python3
+    docker:
+      - image: 'cimg/python:3.7'
     parameters:
       cluster-name:
         description: |
@@ -80,7 +81,8 @@ jobs:
             
           
   create-deployment:
-    executor: aws-eks/python3
+    docker:
+      - image: 'cimg/python:3.7'
     parameters:
       cluster-name:
         description: |
@@ -99,7 +101,8 @@ jobs:
           resource-name: deployment/udacity-capstone
           
   test-deployment:
-    executor: aws-eks/python3
+    docker:
+      - image: 'cimg/python:3.7'
     parameters:
       cluster-name:
         description: |
