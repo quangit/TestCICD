@@ -118,6 +118,7 @@ workflows:
        - config-image
        - aws-eks/create-cluster:
            cluster-name: mycapstone-myweather123456723
+           zones: us-east-1a
            requires:
              - config-image
        - test-cluster:
